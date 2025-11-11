@@ -144,3 +144,17 @@ Deploy-pipelineen trigges kun når en release opprettes (`on: release: types: [c
 Når pipelineen kjører, henter den ut koden fra den taggede releasen, installerer avhengigheter og bygger prosjektet. De kompilerte filene fra `code/dist`-mappen lastes deretter opp som et artifact til GitHub Pages med `upload-pages-artifact@v3`.
 
 Til slutt deployer `deploy-pages@v4` artifaktet til GitHub Pages, slik at den nye versjonen av applikasjonen blir tilgjengelig på internett. På denne måten sikrer du at kun godkjente og taggede versjoner av koden din når produksjon.
+
+
+:pencil2: Gå til Github.com og opprett en Release for å trigge deploy-pipeline. 
+I roten av repositoriet har du en lenke til "Releases" og "Create new release".
+![](create_new_release.png)
+
+Under "Tag"-dropdown, velg deg et tag-navn (Forslag: Bruk en versjonstag, f.eks. v1.0.0, v1 etc). Velg et passende navn på release. 
+![](release_info.png)
+
+
+Trykk på "Publish release" nederst i skjermbildet. Sjekk at Action din kjører og at ny deploy går ut.
+![](publish_release)
+
+

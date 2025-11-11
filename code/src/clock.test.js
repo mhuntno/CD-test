@@ -4,7 +4,7 @@ import { test, expect } from "vitest";
 test('getTimeString formats time string correctly', () => {
   const now = new Date(0, 0, 0, 10, 20, 30);
   const timeString = getTimeString(now);
-  expect(timeString).toBe('');
+  expect(timeString).toBe('10:20:30');
 });
 
 test('getSecondsLeftOfYear returns the correct amount of seconds', () => {

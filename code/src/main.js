@@ -3,6 +3,7 @@ import './style.css'
 
 const timeContainer = document.getElementById("time");
 const timeLeft = document.getElementById("seconds-left");
+const unusedVariable = 3;
 
 const render = () => {
   const now = new Date();

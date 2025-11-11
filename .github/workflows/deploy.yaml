@@ -1,14 +1,16 @@
-name: build
-on: [push]
+name: Deploy
+on:
+  release:
+    types: [created]
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      pages: write
     defaults:
       run:
         working-directory: ./code
+    permissions:
+      pages: write     
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js 22.x
@@ -17,12 +19,10 @@ jobs:
           node-version: 22.x
       - run: npm ci
       - run: npm run build
-      - run: npm run lint
-      - run: npm test
       - name: Upload static files as artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v3 
         with:
           path: code/dist
-      - name: Deploy to Github Pages
+      - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 
+        uses: actions/deploy-pages@v4
